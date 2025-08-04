@@ -3,6 +3,9 @@
     --pastel-green: #A2AF9B;
     --pastel-brown: #DCCFC0;
     --pastel-grey: #EEEEEE;
+    --main-width: 30rem;
+    --main-height: 4rem;
+    --action-text-size: 0.75rem;
 }
 
 body {
@@ -23,48 +26,156 @@ body {
 }
 
 .input-wrapper {
-    position: relative;
-    width: max-content;
-    width: 30rem
+    display: flex;
+    align-items: center;
+    width: var(--main-width);
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0rem 0.2rem 0.7rem;
+    padding: 0 0.75rem;
+    transition: outline 0.2s;
+    border: 0.2rem solid transparent;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
 }
 
 .chores-input {
     all: unset;
-    background-color: white;
-    width: 100%;
-    height: fit-content;
+    flex: 1;
     font-size: 1.2rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 0.2rem 0.7rem;
-    transition: outline 0.2s;
-    flex: 1 1 auto;
+    padding: 1rem 0;
 }
 
-.chores-input:hover {
-    outline: 0.2rem solid var(--pastel-green);
+.chores-input::placeholder {
+    color: var(--pastel-green);
+}
+
+.input-wrapper:hover,
+.chores-main:hover {
+    border: 0.2rem solid var(--pastel-green);
+}
+
+.input-wrapper:has(.chores-input:focus) {
+    border: 0.2rem solid var(--pastel-green);
+}
+
+.input-wrapper:hover,
+.input-wrapper:has(.chores-input:focus) {
+    border-color: var(--pastel-green);
 }
 
 .add-button {
-    position: absolute;
-    transform: translateY(-50%);
-    top: 50%;
-    right: 0.8rem;
-    background: none;
+    background: var(--pastel-green);
+    color: white;
     border: none;
+    font-size: 1.5rem;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    height: 1.5rem;
-    width: 1.5rem;
-    cursor: pointer;
-    pointer-events: none;
     opacity: 0;
-    transition: opacity 0.2s;
+    pointer-events: none;
+    transition: opacity 0.1s;
 }
 
-.input-wrapper:hover .add-button {
+.input-wrapper:hover .add-button,
+.input-wrapper:has(.chores-input:focus) .add-button {
     opacity: 1;
     pointer-events: auto;
+}
+
+.chores-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    margin-top: 2rem;
+    padding: 0;
+    width: var(--main-width);
+    border: 0.2rem solid transparent;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0rem 0.2rem 0.7rem;
+}
+
+.chores-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: var(--main-height);
+    padding: 0;
+    margin-top: 0.75rem;
+    width: 100%;
+}
+
+.class-still-to-define {
+    background-color: white;
+    overflow: hidden;
+}
+
+.class-still-to-define::before,
+.class-still-to-define::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+}
+
+.class-still-to-define::before {
+    top: 0;
+    background: linear-gradient(to right, transparent, var(--pastel-brown), transparent);
+}
+
+.class-still-to-define::after {
+    bottom: 0;
+    background: linear-gradient(to right, transparent, var(--pastel-brown), transparent);
+}
+
+
+.action-bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    box-sizing: border-box;
+    align-items: center;
+    width: 100%;
+    padding: 0.50rem
+}
+
+.chores-counter {
+    justify-self: start;
+    color: var(--pastel-brown);
+    font-size: var(--action-text-size);
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+.filter-buttons {
+    justify-self: center;
+    display: flex;
+    gap: 2rem;
+}
+
+.status-button {
+    all: unset;
+    font-size: var(--action-text-size);
+    color: var(--pastel-brown);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.clear-button {
+    all: unset;
+    justify-self: end;
+    font-size: var(--action-text-size);
+    color: var(--pastel-brown);
+    cursor: pointer;
+    font-weight: bold;
 }

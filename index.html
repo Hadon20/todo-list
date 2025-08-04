@@ -11,20 +11,21 @@
 
 <body>
     <h1 class="title">You better not forget!</h1>
-    <div class="input-wrapper">
-        <input type="text" class="chores-input" placeholder="Add the chore here!">
-        <button class="add-button">+</button>
-    </div>
+    <form class="input-wrapper">
+        <input type="text" class="chores-input" id="user-input" placeholder="Add the chore here!">
+        <button class="add-button" type="submit">+</button>
+    </form>
     <div class="chores-main">
-        <div class="chores-list"></div>
-        <div>
-            <p></p>
-            <div>
-                <button></button>
-                <button></button>
-                <button></button>
+        <div class="chores-list">
+        </div>
+        <div class="action-bar">
+            <p class="chores-counter">Counter</p>
+            <div class="filter-buttons">
+                <button class="status-button">All</button>
+                <button class="status-button">Active</button>
+                <button class="status-button">Completed</button>
             </div>
-            <button></budiv>
+            <button class="clear-button">Clear Completed</button>
         </div>
     </div>
 </body>
