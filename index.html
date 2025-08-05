@@ -11,19 +11,22 @@
 
 <body>
     <h1 class="title">You better not forget!</h1>
-    <form class="input-wrapper">
-        <input type="text" class="chores-input" id="user-input" placeholder="Add the chore here!">
-        <button class="add-button" type="submit">+</button>
+    <form class="input-wrapper" id="chore-form">
+        <input type="text" class="chores-input" placeholder="Add the chore here!">
+        <button class="add-button" type="submit">
+            <img src="resources/add-circle-svgrepo-com.svg" alt="Add chore button">
+        </button>
     </form>
     <div class="chores-main">
         <div class="chores-list">
+
         </div>
         <div class="action-bar">
             <p class="chores-counter">Counter</p>
             <div class="filter-buttons">
-                <button class="status-button">All</button>
-                <button class="status-button">Active</button>
-                <button class="status-button">Completed</button>
+                <button class="status-button" id="filter-all">All</button>
+                <button class="status-button" id="filter-active">Active</button>
+                <button class="status-button" id="filter-completed">Completed</button>
             </div>
             <button class="clear-button">Clear Completed</button>
         </div>
